@@ -14,17 +14,17 @@ app.listen(port, () => {
 function getLCS(query) {
   const { x: xS, y: yS } = query;
   if (!xS || !yS) {
-    return NaN;
+    return "NaN";
   }
 
   const regex = /^\d+$/;
   if (!regex.test(xS) || !regex.test(yS)) {
-    return NaN;
+    return "NaN";
   }
   const x = BigInt(xS);
   const y = BigInt(yS);
 
-  if (x <= 0n || y <= 0n) return NaN;
+  if (x <= 0n || y <= 0n) return "NaN";
   if (x === 1n || y === 1n) return "1";
   if (x === y) return y;
   const gcd = x > y ? getGCD(x, y) : getGCD(y, x);
